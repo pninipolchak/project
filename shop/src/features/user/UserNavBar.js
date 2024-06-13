@@ -15,7 +15,7 @@ const UserNavBar = ({ name }) => {
     );
 
     const centerContent = (
-        <div className="flex flex-wrap align-items-center gap-8">
+        <div className="flex flex-wrap align-items-center gap-20">
             <Link to={"/loveFlower/list"}><button className="p-link inline-flex justify-content-center align-items-center text-white h-5rem w-5rem border-circle hover:bg-white-alpha-10 transition-all transition-duration-200">
                 {/* <i className="pi pi-user text-2xl"></i> */}
                 <label>המוצרים שלנו</label>

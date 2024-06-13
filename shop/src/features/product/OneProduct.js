@@ -8,7 +8,7 @@ import { Button } from 'primereact/button';
 import { deleteProduct } from "./productApi";
 
 
-const OneProduct = ({ product }) => {
+const OneProduct = ({ product,index }) => {
 
     let disp = useDispatch();
     let currentUser = useSelector(state => state.user.currentUser);
@@ -35,7 +35,7 @@ const OneProduct = ({ product }) => {
 
     return (<>
         
-        <div className="col-12 sm:col-6 lg:col-12 xl:col-4 p-2" key={product._id}>
+        <div className="col-12 sm:col-6 lg:col-12 xl:col-4 p-2" key={index}>
             <div className="p-4 border-1 surface-border surface-card border-round">
                 <div className="flex flex-wrap align-items-center justify-content-between gap-2">
                     <div className="flex align-items-center gap-2">
@@ -52,7 +52,7 @@ const OneProduct = ({ product }) => {
                 </div>
                 <div className="flex align-items-center justify-content-between">
                     <span className="text-2xl font-semibold">₪{product.cost}</span>
-                    {currentUser && currentUser.role == 'USER' && <Button icon="pi pi-shopping-cart" className="p-button-rounded"
+                    {currentUser && currentUser.role != 'ADMIN' && <Button icon="pi pi-shopping-cart" className="p-button-rounded"
                         onClick={(e) => {
                             op.current.toggle(e);
                             disp(addToBasket(product));

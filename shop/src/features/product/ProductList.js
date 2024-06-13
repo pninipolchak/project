@@ -45,8 +45,8 @@ const ProductList = () => {
     const listTemplate = (items) => {
         if (!items || items.length === 0) return null;
 
-        let list = items.map((product) => {
-            return <OneProduct product={product} />
+        let list = items.map((product,index) => {
+            return <OneProduct product={product} index={index} />
         });
 
         return <div className="grid grid-nogutter">{list}</div>;
@@ -69,6 +69,3 @@ const ProductList = () => {
 }
  
 export default ProductList;
-
-
-
