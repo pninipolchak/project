@@ -1,0 +1,5 @@
+python-dotenv==1.0.1
+
+[dev]
+pytest==8.2.2
+ruff==0.4.10
