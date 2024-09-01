@@ -7,7 +7,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
-import { getData } from './DataApi';
+// import { getData } from './DataApi';
 
 const columns = [
   { id: 'date', label: 'Date', minWidth: 170 },
@@ -90,7 +90,7 @@ export default function DataTable() {
         </Table>
       </TableContainer>
       <TablePagination
-        rowsPerPageOptions={[5,10, 25, 100,200]}
+        rowsPerPageOptions={[5,10, 25, 100]}
         component="div"
         count={rows.length}
         rowsPerPage={rowsPerPage}

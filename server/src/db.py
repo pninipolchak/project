@@ -4,6 +4,7 @@ import datetime
 import json
 import os
 from pymongo import MongoClient
+import pymongo
 from const import DB
 
 
@@ -73,3 +74,34 @@ class DataProcessor:
         
         except ValueError as e:
             raise ValueError(f"Failed get data: {e}")
+
+    
+    def get_higher_data(self):
+        try:
+            return self.collection.find_one({}, sort=[("average", pymongo.DESCENDING)])
+        
+        except ValueError as e:
+            raise ValueError(f"Failed get data: {e}")
+        
+        
+    def get_lower_data(self):
+        try:
+            return self.collection.find_one({}, sort=[("average", pymongo.ASCENDING)])
+        
+        except ValueError as e:
+            raise ValueError(f"Failed get data: {e}")
+        
+    def get_last_data(self):
+        try:
+            return self.collection.find().sort([("_id", -1)]).limit(3)
+        
+        except ValueError as e:
+            raise ValueError(f"Failed get data: {e}")
+        
+
+
+
+
+    # max_date = max_average_doc["date"]
+
+    

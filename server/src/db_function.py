@@ -16,6 +16,15 @@ def insert_monthly_average():
 def get_data():
     return data_processor.get_history_dollar_rate()
 
+def get_high_data():
+    return data_processor.get_higher_data()
+
+def get_low_data():
+    return data_processor.get_lower_data()
+
+def get_last_data():
+    return data_processor.get_last_data()
+
 def get_dollar_exchange_rate():
     try:
         # url =DolarRates.URL
