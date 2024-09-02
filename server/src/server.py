@@ -1,10 +1,13 @@
 from flask import Flask, jsonify
 # from flask.json import jsonify
 from db_function import get_data, insert_data_history, insert_monthly_average,get_high_data,get_low_data,get_last_data
+from flask_cors import CORS
 
 
 app = Flask(__name__)
-
+# CORS(app, origins=['http://localhost:3000'])
+# @cross_origin(origin='*')
+CORS(app)
 
 @app.route('/get_data', methods=['GET'])
 def get_rate():

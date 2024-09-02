@@ -1,9 +1,10 @@
 import axios from "axios";
 
-let baseUrl = 'http://0.0.0.0:8000/';
+let baseUrl = 'http://localhost:8000/';
 
-export const getData = () => {
-    return axios.get( baseUrl +'get_data');
+export const getData = async() => {
+    let response = await axios.get( `${baseUrl}get_data`,{headers : {'Accept-Encoding': 'application/json'}});
+    return response.data;
 }
 // export const getLowData = () => {
 //     return axios.get( baseUrl +'get_high_data');
