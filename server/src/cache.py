@@ -17,5 +17,6 @@
     {"date": "April2024", "average": "3.74"},
     {"date": "May2024", "average": "3.71"},
     {"date": "June2024", "average": "3.72"},
-    {"date": "July2024", "average": "3.68"}
+    {"date": "July2024", "average": "3.68"},
+    {"date": "August2024", "average": "3.81"}
 ]

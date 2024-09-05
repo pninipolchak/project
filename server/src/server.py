@@ -1,12 +1,9 @@
 from flask import Flask, jsonify
-# from flask.json import jsonify
-from db_function import get_data, insert_data_history, insert_monthly_average,get_high_data,get_low_data,get_last_data
+from db_function import get_data, insert_data_history, insert_monthly_average,get_high_data,get_low_data
 from flask_cors import CORS
 
 
 app = Flask(__name__)
-# CORS(app, origins=['http://localhost:3000'])
-# @cross_origin(origin='*')
 CORS(app)
 
 @app.route('/get_data', methods=['GET'])
@@ -15,50 +12,38 @@ def get_rate():
         data = get_data()
         data_list = [{'date': item['date'], 'average': item['average']} for item in data]
         if len(data_list) != 0:
-            return jsonify({'data': data_list})
+            return jsonify({'list': data_list})
         return jsonify({'no data': []})
 
     except Exception as e:
-        raise Exception(f"Failed in server : {e}")
+        raise Exception(f"Failed in get data : {e}")
 
-@app.route('/get_high_data', methods=['GET'])
+
+@app.route('/get_max_data', methods=['GET'])
 def get_high_rate():
     try:
         data = get_high_data()
         date = data['date']
         if data: 
-            return jsonify({'data': date})
+            return jsonify({'date': date})
         return jsonify({'no data': []})
 
     except Exception as e:
-        raise Exception(f"Failed in server : {e}")
+        raise Exception(f"Failed in get max data : {e}")
     
 
-@app.route('/get_low_data', methods=['GET'])
+@app.route('/get_min_data', methods=['GET'])
 def get_low_rate():
     try:
         data = get_low_data()
         date = data['date']
         if data: 
-            return jsonify({'data': date})
+            return jsonify({'date': date})
         return jsonify({'no data': []})
 
     except Exception as e:
-        raise Exception(f"Failed in server : {e}")
+        raise Exception(f"Failed in get min data : {e}")
     
-
-@app.route('/get_last_data', methods=['GET'])
-def get_last_rate():
-    try:
-        data = get_last_data()
-        data_list = [{'date': item['date'], 'average': item['average']} for item in data]
-        if len(data_list) != 0:
-            return jsonify({'data': data_list})
-        return jsonify({'no data': []})
-
-    except Exception as e:
-        raise Exception(f"Failed in server : {e}")
-
 
 if __name__ == '__main__':
     insert_data_history()

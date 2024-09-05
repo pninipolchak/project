@@ -22,20 +22,17 @@ def get_high_data():
 def get_low_data():
     return data_processor.get_lower_data()
 
-def get_last_data():
-    return data_processor.get_last_data()
-
 def get_dollar_exchange_rate():
     try:
-        # url =DolarRates.URL
-        # res = requests.get(url)
-        # stream_content = res.content.decode('utf-8')
-        # json_data = json.loads(stream_content)
-        # average_monthly = json_data['data']['dataSets'][0]['series']['0:0:0:0:0:0']['observations']['0'][0]
+        url =DolarRates.URL
+        res = requests.get(url)
+        stream_content = res.content.decode('utf-8')
+        json_data = json.loads(stream_content)
+        average_monthly = json_data['data']['dataSets'][0]['series']['0:0:0:0:0:0']['observations']['0'][0]
         current_date = get_date()
-        # new_data = {"date": current_date, "average": average_monthly}
-        # return new_data
-        return {"date": current_date, "average": 0.00}
+        new_data = {"date": current_date, "average": average_monthly}
+        return new_data
+        # return {"date": current_date, "average": 0.00}
 
     except Exception as e:
         raise ValueError(f"Failed get dollar exchange rate: {e}")

@@ -13,36 +13,15 @@ class DataProcessor:
         self.db_name = DB.DB_NAME
         self.collection_name = DB.COLLECTION_NAME
         self.client = self.connect_mongo()
-        # self.collection = self.client[self.db_name][self.collection_name]
-        self.collection = self.create_collection_schema()
+        self.collection = self.client[self.db_name][self.collection_name]
+
 
     def connect_mongo(self):
         try:
             return MongoClient(DB.ATLAS_URL)
-            # return MongoClient(DB.HOST,DB.PORT)
         
         except Exception as e:
             raise ValueError(f"Mongo not available: {e}")
-
-
-    def create_collection_schema(self):
-        try:
-            db = self.client[self.db_name]
-
-            # db.create_collection(self.collection_name, validator={
-            #     "$jsonSchema": {
-            #         "bsonType": "object",
-            #         "required": ["date", "average"],
-            #         "properties": {
-            #             "date": {"bsonType": "string"},
-            #             "average": {"bsonType": "string"}
-            #         }
-            #     }
-            # })
-            return db[self.collection_name]
-
-        except Exception as e:
-            raise ValueError(f"Create collection failed: {e}")
 
 
     def insert_history(self):
@@ -91,17 +70,3 @@ class DataProcessor:
         except ValueError as e:
             raise ValueError(f"Failed get data: {e}")
         
-    def get_last_data(self):
-        try:
-            return self.collection.find().sort([("_id", -1)]).limit(3)
-        
-        except ValueError as e:
-            raise ValueError(f"Failed get data: {e}")
-        
-
-
-
-
-    # max_date = max_average_doc["date"]
-
-    

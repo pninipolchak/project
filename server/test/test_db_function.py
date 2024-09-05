@@ -16,5 +16,3 @@ def test_get_date():
     expected_date = expected_month + expected_year
 
     assert get_date() == expected_date
-
-

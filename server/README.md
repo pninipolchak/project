@@ -1,2 +1,5 @@
 # server
-`docker run -it --rm -p 3500:3500 server`
+
+The code written in react.⚛️
+Run on docker.🐋
+

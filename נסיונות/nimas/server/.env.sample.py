@@ -1,5 +1,0 @@
-MONGO_HOST="mongo container name"
-MONGO_PORT="27017"
-DB_NAME="data base name"
-COLLECTION_NAME="collection name"
-URL_DOLAR_RATE="https://edge.boi.gov.il/FusionEdgeServer/sdmx/v2/data/dataflow/BOI.STATISTICS/EXR/1.0/?c%5BDATA_TYPE%5D=OF00&c%5BBASE_CURRENCY%5D=USD&lastNObservations=1&format=sdmx-json&normalisefreq=M;mean&round=2"

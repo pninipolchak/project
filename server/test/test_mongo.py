@@ -15,4 +15,3 @@ def test_mongo_operations(mongo_client):
     result = collection.find_one({'date': 'April2040','average':'4.23'})
     assert result is not None
     assert result['date'] == 'April2040'
-
