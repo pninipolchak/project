@@ -5,11 +5,12 @@ import { styled } from '@mui/material/styles';
 import _ from 'lodash'
 
 const DemoPaper = styled(Paper)(({ theme }) => ({
-    width: 120,
-    height: 120,
-    padding: theme.spacing(2),
-    ...theme.typography.body2,
+    width:500,
+    height: 500,
+    padding:'10%',
     textAlign: 'center',
+    fontSize:'70px',
+    backgroundColor:' inherit'
 }));
 
 
@@ -24,8 +25,8 @@ export default function Forecast({ data }) {
     }
 
     return (
-        <Stack direction="row" spacing={2}>
-            <DemoPaper square={false}>Forecast:{getForecast()}</DemoPaper>
+        <Stack padding='50px' direction="row" spacing={2}>
+            <DemoPaper color='rgb(82, 135, 138)' square={false}>Forecast for the next month {getForecast()}</DemoPaper>
         </Stack>
     );
 }

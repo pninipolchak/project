@@ -36,11 +36,11 @@ class DataProcessor:
 
     def insert_average(self, new_rate: json):
         try:
-            # while True:
-            #     today = datetime.date.today()
-            #     if today.day == calendar.monthrange(today.year, today.month)[1]:
-            #         self.collection.insert_one(new_rate)
-            #     time.sleep(3600)
+            while True:
+                today = datetime.date.today()
+                if today.day == calendar.monthrange(today.year, today.month)[1]:
+                    self.collection.insert_one(new_rate)
+                time.sleep(3600)
             self.collection.insert_one(new_rate)
         
         except Exception as e:

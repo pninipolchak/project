@@ -44,7 +44,8 @@ function App() {
   return (<>
       <NavBar />
       <Routes>
-        <Route path="/" element={<Forecast data={data}/>} />
+        <Route path="/"/>
+        <Route path="/forecast" element={<Forecast data={data}/>} />
         <Route path="/graph" element={<Graph dataList={data}/>} />
         <Route path="/table" element={<DataTable rows={data} min={minData} max={maxData}/>} />
         <Route path="/matrix" element={<Matrix data={data}/>} />

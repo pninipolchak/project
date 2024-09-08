@@ -1,5 +1,4 @@
 # server
 
-The code written in react.⚛️
+Code written in react.⚛️
 Run on docker.🐋
-

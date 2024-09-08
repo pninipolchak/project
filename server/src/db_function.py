@@ -3,7 +3,7 @@ import json
 import os
 import requests
 from db import DataProcessor
-from const import DolarRates
+from const import DollarRates
 
 data_processor=DataProcessor()
 
@@ -24,7 +24,7 @@ def get_low_data():
 
 def get_dollar_exchange_rate():
     try:
-        url =DolarRates.URL
+        url =DollarRates.URL
         res = requests.get(url)
         stream_content = res.content.decode('utf-8')
         json_data = json.loads(stream_content)
@@ -32,7 +32,7 @@ def get_dollar_exchange_rate():
         current_date = get_date()
         new_data = {"date": current_date, "average": average_monthly}
         return new_data
-        # return {"date": current_date, "average": 0.00}
+
 
     except Exception as e:
         raise ValueError(f"Failed get dollar exchange rate: {e}")

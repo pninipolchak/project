@@ -179,7 +179,7 @@ export default function DataTable(props) {
   };
 
   return (
-    <Paper sx={{ width: '50%', overflow: 'hidden', backgroundColor: 'pink' }}>
+    <Paper sx={{ width: '50%', overflow: 'hidden' }}>
       <EnhancedTableToolbar numSelected={selected.length} />
       <TableContainer sx={{ maxHeight: 440 }}>
         <Table stickyHeader aria-label="sticky table" aria-labelledby="tableTitle">

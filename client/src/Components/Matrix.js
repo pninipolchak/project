@@ -2,7 +2,7 @@ import {useState} from 'react';
 import { Button } from "@mui/material";
 import CollapsibleTable from './MatrixTables'
 
-export default Matrix=({data})=>{
+const Matrix=({data})=>{
     const [isShow,setIsShow]=useState(false);
     const getAverageArr=()=>{
         let averageArr=[];
@@ -69,3 +69,5 @@ export default Matrix=({data})=>{
     {isShow&&<CollapsibleTable data={dataRows}/>}
     </>)
 }
+
+export default Matrix;
