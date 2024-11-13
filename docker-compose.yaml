@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  backend:
+    build: 
+      context: ./server
+    container_name: server
+    ports:
+      - "8000:8000"
+    networks:
+      - ptcTest-network
+
+  frontend:
+    command: /bin/bash -c "npm start"
+    stdin_open: true
+    tty: true  
+    build: 
+      context: ./client
+    container_name: client
+    ports:
+      - "3000:3000"
+    networks:
+      - ptcTest-network
+    depends_on:
+      - backend
+
+networks:
+  ptcTest-network:
+    driver: bridge
